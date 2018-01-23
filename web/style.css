@@ -1,0 +1,105 @@
+.fancy_button {
+  background-color: #747474;
+  border: 2px solid #747474;
+  border-radius: 25px;
+  color: white;
+  width: auto;
+  padding: 8px 16px;
+  text-align: center;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.fancy_button:hover {
+  background-color: white;
+  color: black;
+}
+
+.menu_button {
+  padding: 8px 16px;
+  font-size: 14px;
+  margin: 4px 2px;
+  position: absolute; 
+  left: 15px; 
+  top: 15px; 
+  z-index:1;
+}
+
+.site_header {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color: #004A6D; 
+  padding-bottom: 5px; 
+  padding-top: 5px; 
+  color: white; 
+  width: 100%;
+}
+
+.site_logo {
+  display:block; 
+  width:150px; 
+  margin:auto;
+}
+
+.centered {
+	margin:auto;
+	text-align:center;
+}
+
+.main_body {
+	padding: 25px;
+}
+
+.full_width {
+	width: 100%;
+}
+
+.blue_color, .green_color, .orange_color {
+	text-align: center;
+	padding: 20px;
+}
+
+.blue_color {
+	background-color: #2C6FAE;
+	color: white;
+}
+
+.green_color {
+	background-color: #52AF52;
+	color: white;
+}
+
+.orange_color {
+	background-color: #EEA345;
+	color: white;
+}
+
+
+/* CAROUSEL
+---------------------------------------*/
+
+.carousel {
+	margin-bottom: 60px;
+}
+
+.carousel-buttons {
+	z-index: 1100;
+	position: absolute;
+	width: 100%;
+	color: white;
+	top: 1px;
+}
+
+.carousel-buttons > div {
+	padding: 20px;
+	border: 1px solid white;
+}
+
+.carousel-buttons a {
+	color: white;
+	display: block;
+	line-height: 50px;
+}
