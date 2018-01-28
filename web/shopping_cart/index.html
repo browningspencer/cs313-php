@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<!--
+
+	#004A6D
+-->
+<head>
+	<title>Shopping Cart</title>
+
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+	<script src="script.js"></script>
+</head>
+<body class="shadow_effect" onload="welcome()">
+	<div style="background-color: #004A6D; padding-bottom: 20px;">
+		<input class="fancy_button menu_button" type="button" onclick="location.href='../assignments.html';" value="CS 313 Assignments"/>
+		<h1 class="site_title" style="text-align: center; font-family: ‘Courier New’, Courier, monospace;">--Shopping Cart--</h1>
+	</div>
+	
+	<div align="center" class="site_body shadow_effect" id="shopping_cart" style="padding: 15px; width: 30%;">
+
+		<form onsubmit="onCheckout()" onreset="resetForm()">
+			<h2>Products</h2> <hr>
+			
+			<label>First Name:</label><br>
+			<input type="text" name="first_name" id="first_name" placeholder="First Name" /><br><br>
+			
+			<label>Last Name:</label><br>
+			<input type="text" name="last_name" id="last_name" placeholder="Last Name" /><br><br>
+			
+			<label>Shipping Address:</label><br>
+			<input type="text" name="address" id="address" placeholder="1234 Random St. Provo, UT 84604" /><br><br>
+			
+			<label>Phone #:</label><br>
+			<input type="text" name="phone" id="phone" placeholder="555-555-5555" /><br><br>
+
+			<table>
+				<tr>
+					<th>
+						<input type="checkbox" onclick="blackCheck()" name="bike" value="black_bike" id="black" /><img src="http://www.bicycling.com/sites/bicycling.com/files/styles/slideshow-desktop/public/specialized_rhy_comp-carbon-6fattie_0.jpg?itok=cLUYMQpP" alt="Black Bike" width="150px" ><br> Black Bike - $500<br><br>
+					</th>
+					<th>
+						<input type="checkbox" onclick="blueCheck()" name="bike" value="blue_bike" id="blue" /><img src="http://www.konaworld.com/images/bike/full/operator.jpg" alt="Blue Bike" width="150px"><br> Blue Bike - $750<br><br>
+					</th>
+				</tr>
+				<tr>
+					<th>
+						<input type="checkbox" onclick="yellowCheck()" name="bike" value="yellow_bike" id="yellow" /><img src="http://www.bicycling.com/sites/bicycling.com/files/articles/2017/03/santa-cruz-tallboy.jpg" alt="Yellow Bike" width="150px"><br>Yellow Bike - $1000<br><br>
+					</th>
+					<th>
+						<input type="checkbox" onclick="whiteCheck()" name="bike" value="white_bike" id="white" /><img src="http://i.ebayimg.com/00/s/MjYxWDMwMA==/z/0l8AAOSwDk5T~s9z/$_35.JPG?set_id=2" alt="White Bike" width="150px"><br> White Bike - $1500<br><br>
+					</th>
+				</tr>
+			</table>
+
+			<p>
+				<strong>Sub Total</strong>: $<span id="stotal"></span>
+			</p>
+				<strong>Total</strong>: $<span id="total"></span>
+			</p>
+
+			<hr>
+			<h3>Payment Information</h3>
+			<label>Credit Card Number</label><br>
+			<input type="text" onblur="cardNumber()" name="card_number" id="card_number" placeholder="****************" /><br>
+			<label>Credit Card Expiration Date</label><br>
+			<input type="text" onblur="cardDate()" name="exp_date" id="exp_date" placeholder="MM/YYYY" /><br><br>
+
+			<input type="reset" name="reset" class="fancy_button" id="reset" value="Reset" onclick="form_reset" />
+			<input type="submit" name="checkout" class="fancy_button" id="checkout" value="Checkout" />
+
+
+		</form>
+
+	</div>
+
+</body>
+</html>

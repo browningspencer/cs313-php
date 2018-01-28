@@ -77,6 +77,62 @@
 	color: white;
 }
 
+html {
+  background-color: #004A6D;
+  font-family: Helvetica, sans-serif;
+}
+
+body {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin: 50px;
+  background-color: white;
+}
+
+.shadow_effect {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+h1{
+  color: white;
+  padding: 10px;
+  font-size: 48px;
+}
+
+.background {
+  background-color: white;
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  z-index: -1;
+}
+
+.site_body {
+  background-color: white;
+  width: 50%;
+  margin: auto;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+thead {
+  vertical-align: middle;
+  background-color: #004A6D;
+  color: white;
+}
+
+th {
+  text-align: center;
+  padding: 10px;
+}
+
+td {
+  padding: 5px 10px 5px;
+  text-align: center;
+}
+
+
 
 /* CAROUSEL
 ---------------------------------------*/
