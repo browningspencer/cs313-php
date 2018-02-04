@@ -1,0 +1,31 @@
+CREATE TABLE public.users
+(
+user_id SERIAL NOT NULL PRIMARY KEY,
+userName varchar(20) NOT NULL UNIQUE,
+password varchar(12) NOT NULL
+
+);
+
+CREATE TABLE public.conference
+(
+conference_id SERIAL NOT NULL PRIMARY KEY,
+year SMALLINT NOT NULL,
+is_spring BOOLEAN NOT NULL
+
+);
+
+CREATE TABLE public.speaker
+(
+speaker_id SERIAL NOT NULL PRIMARY KEY,
+name varchar(50) NOT NULL
+
+);
+
+CREATE TABLE public.note
+(
+note_id SERIAL NOT NULL PRIMARY KEY,
+user_id INT NOT NULL REFERENCES public.users(user_id),
+conference_id INT NOT NULL REFERENCES public.conference(conference_id),
+speaker_id INT NOT NULL REFERENCE public.speaker(speaker_id),
+note_text text NOT NULL
+);
