@@ -31,7 +31,7 @@ try {
 	// this line makes PDO give us an exception when there are problems, and can be very helpful in debugging!
 	//$db->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
 }
-catch {
+catch (PDOException $ex) {
 	print "<p>error: $ex->getMessage() </p>\n\n";
 	die();
 }
