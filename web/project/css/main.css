@@ -1,0 +1,91 @@
+@media only screen and (max-width: 400px) {
+
+    form.inline-form {
+        display: flex;
+        flex-direction: column;
+        width:100%;
+
+    }
+  #homeInput{
+        display:block;
+
+    }
+  button.btn {
+      display:block;
+      width:100%;
+  }
+
+}
+.jumbotron{
+    background-color: steelblue;
+    color:white;
+    padding:2vw 1vw;
+}
+nav{
+    display:flex;
+    justify-content: space-between;
+    background-color:lightgray;
+    padding: 0 5%;
+}
+.yourPage {
+    display:flex;
+    justify-content: center;
+    width: 80%;
+    padding: 10vw 0;
+    margin:auto;
+}
+.yourPage a {
+    margin: 20px;
+    padding: 3vw;
+}
+.intro{
+    margin-bottom: 0;
+}
+.jumbotron h1, .jumbotron p, .jumbotron h2 {
+    text-align: center;
+}
+form{
+    width:80%;
+    margin:auto;
+}
+
+.input-group{
+    width: 80%;
+    margin:auto;
+}
+.panel{
+    width: 90%;
+    margin: 5% auto;
+}
+.about{
+    width: 90%;
+    border: 2px solid steelblue;
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    margin-top: 5vw;
+}
+.about h2 {
+    text-align: center;
+}
+.about p {
+    width: 80%;
+    margin:auto auto 20px auto;
+}
+#textInput{
+    height: 250px;
+}
+.entryForm{
+    width:90%;
+    margin:auto;
+}
+
+@media only screen and (max-width: 400px) {
+
+    .inline-form{
+        display:flex;
+        flex-direction:column;
+    }
+
+
+}
