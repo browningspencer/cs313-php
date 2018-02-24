@@ -21,10 +21,8 @@ include 'Modules/head.php';
     </div>
 </form>
 <div class="container-fluid about">
-    <h2>About journal||me</h2>
-    <p>JournalMe lets you keep track of your life. You can access your journal from anywhere! As long as your are connected to the internet,
-        you can create a journal entry or view previous entries. We enable you to seamlessly record  and remember the moments that matter
-        most to you. </p>
+    <h2>About Cilantro</h2>
+    <p>Cilantro is the recipe book for all your cooking needs. It provides a quick and simple way to add you recipes to an internet database to be viewed at any time.</p>
 
 </div>
 

@@ -21,8 +21,8 @@
 <!--    </div>-->
 <!--</nav>-->
 <div class="jumbotron">
-    <h1>Welcome to Journal||Me</h1>
-    <p>Journey before destination</p>
+    <h1>Cilantro</h1>
+    <p>--The Recipe Book--</p>
 </div>
 <div class="messageText">
    <?php

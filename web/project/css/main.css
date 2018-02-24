@@ -17,7 +17,7 @@
 
 }
 .jumbotron{
-    background-color: steelblue;
+    background-color: #43A546;
     color:white;
     padding:2vw 1vw;
 }
@@ -59,7 +59,7 @@ form{
 }
 .about{
     width: 90%;
-    border: 2px solid steelblue;
+    border: 2px solid #43A546;
     display:flex;
     flex-direction:column;
     justify-content: center;
