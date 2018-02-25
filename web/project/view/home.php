@@ -14,12 +14,6 @@ include 'Modules/head.php';
         </div>
     </div>
 </form>
-<div class="container-fluid about">
-    <h2>About Cilantro</h2>
-    <p>Cilantro is the recipe book for all your cooking needs. It provides a quick and simple way to add you recipes to an internet database to be viewed at any time.</p>
-
-</div>
-
 
 </body>
 </html>
