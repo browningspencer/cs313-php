@@ -33,9 +33,9 @@
 
         $color=$recipe['recipecategory'];
         if($color == "Breakfast"){
-            echo '<div class="panel-heading breakfast">';
+            echo '<div class="breakfast">';
         } else if ($color == "Lunch"){
-            echo '<div class="panel-heading lunch">';
+            echo '<div class="lunch panel-heading">';
         } else if ($color == "Dinner"){
             echo '<div class="panel-heading dinner">';
         } else if ($color == "Dessert"){
