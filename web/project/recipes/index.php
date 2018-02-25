@@ -103,8 +103,8 @@ switch ($action) {
             $review = "<form  class='inline-form' action='../recipes/?action=updateRecipe' method='post' enctype='multipart/form-data' name='updateRecipe' id= 'updateRecipeForm'> ";
             $review .= "<h2>$recipe[recipetitle]</h2>";
             $review .= "<p>Entered on $recipe[date]</p>";
-            $review .= "<label>Review Text </label><br>";
-            $review .= "<textarea class='form-control' name = 'newText' required>";
+            $review .= "<label>Review Ingredients and Directions </label><br>";
+            $review .= "<textarea class='form-control' name = 'newText' rows='40' cols='100' required>";
             $review .= $recipe['recipetext'];
             $review .= "</textarea><br>";
             $review .= "<input type = 'submit' value = 'update' >";

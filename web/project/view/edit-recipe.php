@@ -22,7 +22,7 @@
 </nav>
 <body>
 <div class="jumbotron intro">
-    <h2>Edit your Recipe <?php echo $_SESSION['clientData']['firstname'];  ?></h2>
+    <h2>Edit your recipe <?php echo $_SESSION['clientData']['firstname'];  ?></h2>
 
 </div>
 <div class="recipeForm">

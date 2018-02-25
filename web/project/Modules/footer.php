@@ -1,7 +1,5 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: erict.blackham
- * Date: 2/17/2018
- * Time: 5:22 PM
+ * Created by Spencer Browning.
+ * Inspired by CS 313 Group 5 and Team Teach One Another assignments
  */

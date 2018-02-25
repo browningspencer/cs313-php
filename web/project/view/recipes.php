@@ -31,7 +31,7 @@
         echo '<div class="panel panel-default">';
         echo '<div class="panel-heading">';
         echo '<h3><span> Title: <strong>' . $recipe['recipetitle'] . '</strong></span>';
-        echo '<span> Date: <strong>' . $recipe['date'] . '</strong></span>';
+        echo '<h4> Date Added: <strong>' . $recipe['date'] . '</strong></h4>';
         echo '</h3>';
         echo ' </div>';
         echo ' <div class="panel-body">';

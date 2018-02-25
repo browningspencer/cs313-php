@@ -28,8 +28,8 @@
 <form class="inline-form" action ="../recipes/" method="post" enctype="multipart/form-data" name="SignInNotifaction">
 
     <label for="title">Title:</label>
-        <input type="text" name="title" class="form-control" size="50" placeholder="ex: BEST DAY EVER!" required>
-    <label for="text">Recipe text:</label>
+        <input type="text" name="title" class="form-control" size="50" placeholder="ex: Babushka's Borsch" required>
+    <label for="text">Ingredients and Directions:</label>
     <textarea class = "form-control" name="text" id="textInput"></textarea>
         <div class="input-group-btn">
             <input type="submit"  value="Add Recipe" class="btn btn-default">
