@@ -29,21 +29,19 @@
 <?php
     $recipes = getrecipes($userId);
     foreach ($recipes as $recipe) {
-        echo '<div class="panel panel-default">';
-
         $color=$recipe['recipecategory'];
         if($color == "Breakfast"){
-            echo '<div class="breakfast">';
+            echo '<div class="panel panel-warning">'
         } else if ($color == "Lunch"){
-            echo '<div class="lunch panel-heading">';
+            echo '<div class="panel panel-success">'
         } else if ($color == "Dinner"){
-            echo '<div class="panel-heading dinner">';
+            echo '<div class="panel panel-danger">'
         } else if ($color == "Dessert"){
-            echo '<div class="panel-heading dessert">';
+            echo '<div class="panel panel-info">'
         } else {
-            echo '<div class="panel-heading">';
+            echo '<div class="panel panel-default">';
         }
-
+        echo '<div class="panel-heading">';
         echo '<h3><span> Title: <strong>' . $recipe['recipetitle'] . '</strong></span>';
         echo '<h4> Date Added: <strong>' . $recipe['date'] . '</strong></h4>';
         echo '</h3>';
