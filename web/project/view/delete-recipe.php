@@ -25,7 +25,6 @@
     </nav>
     <h2>Delete your Recipe, <?php echo $_SESSION['clientData']['firstname'];  ?>?</h2>
 </div>
-<div class="warningText">WARNING: deletions are final. Proceed only if you wish to permanently delete your recipe.</div>
 <div class="recipeForm">
     <?php
     if (isset($deleteRecipeView)){
