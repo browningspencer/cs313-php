@@ -31,13 +31,13 @@
     foreach ($recipes as $recipe) {
         $color=$recipe['recipecategory'];
         if($color == "Breakfast"){
-            echo '<div class="panel panel-warning">'
+            echo '<div class="panel panel-warning">';
         } else if ($color == "Lunch"){
-            echo '<div class="panel panel-success">'
+            echo '<div class="panel panel-success">';
         } else if ($color == "Dinner"){
-            echo '<div class="panel panel-danger">'
+            echo '<div class="panel panel-danger">';
         } else if ($color == "Dessert"){
-            echo '<div class="panel panel-info">'
+            echo '<div class="panel panel-info">';
         } else {
             echo '<div class="panel panel-default">';
         }
