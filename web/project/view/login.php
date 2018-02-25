@@ -12,16 +12,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<?php
-//if ($_SESSION['loggedIn']){
-//echo "<nav><h2><a href='../'> Cilantro Recipe Book</a></h2><div class='buttons'>";
-//        echo "<a  href='../accounts/' class='btn btn-warning navbar-btn'>Home</a>";
-//        if(isset($_SESSION['loggedIn'])){
-//        echo '<a class="btn btn-danger navbar-btn" href="../accounts?action=Logout">LogOut</a>';}
-//
-//        echo "</div></nav>";
-//}
-//?>
 <div class="jumbotron">
     <h1>Cilantro</h1>
     <p>--The Recipe Book--</p>
