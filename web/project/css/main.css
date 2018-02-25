@@ -17,8 +17,17 @@
 
 }
 
-a {
-
+.breakfast {
+    background-color: #F5CB4E;
+}
+.lunch {
+    background-color: #ED4B28;
+}
+.dinner {
+    background-color: #8ECFDC;
+}
+.dessert {
+    background-color: #7DA842;
 }
 
 .jumbotron{

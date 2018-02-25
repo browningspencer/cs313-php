@@ -30,13 +30,26 @@
     $recipes = getrecipes($userId);
     foreach ($recipes as $recipe) {
         echo '<div class="panel panel-default">';
-        echo '<div class="panel-heading">';
+
+        $color=$recipe['recipecategory'];
+        if($color == "Breakfast"){
+            echo '<div class="panel-heading breakfast">';
+        } else if ($color == "Lunch"){
+            echo '<div class="panel-heading lunch">';
+        } else if ($color == "Dinner"){
+            echo '<div class="panel-heading dinner">';
+        } else if ($color == "Dessert"){
+            echo '<div class="panel-heading dessert">';
+        } else {
+            echo '<div class="panel-heading">';
+        }
+
         echo '<h3><span> Title: <strong>' . $recipe['recipetitle'] . '</strong></span>';
         echo '<h4> Date Added: <strong>' . $recipe['date'] . '</strong></h4>';
         echo '</h3>';
         echo ' </div>';
         echo ' <div class="panel-body">';
-        echo '<p>' . $recipe['recipetext'] . '</p>';
+        echo '<p>Category: ' . $recipe['recipecategory'] . '</p>';
         echo "<a class='btn btn-primary' href = '../recipes/?action=editRecipe&id=$recipe[recipeid]'>edit</a> | ";
         echo "<a class='btn btn-danger' href = '../recipes/?action=goDelete&id=$recipe[recipeid]'>delete</a>";
         echo ' </div></div>';
