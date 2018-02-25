@@ -12,7 +12,7 @@
 </head>
 <body>
 <!--<nav>-->
-<!--    <h2><a href="../"> Cilantro</a></h2>-->
+<!--    <h2><a href="../"> Cilantro Recipe Book</a></h2>-->
 <!--    <div class="buttons">-->
 <!--        <a  href="../accounts/" class="btn btn-warning navbar-btn">Home</a>-->
 <!--        --><?php //if(isset($_SESSION['loggedIn'])){

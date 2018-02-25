@@ -13,7 +13,7 @@
 <body>
 <?php
 //if ($_SESSION['loggedIn']){
-//echo "<nav><h2><a href='../'> Cilantro</a></h2><div class='buttons'>";
+//echo "<nav><h2><a href='../'> Cilantro Recipe Book</a></h2><div class='buttons'>";
 //        echo "<a  href='../accounts/' class='btn btn-warning navbar-btn'>Home</a>";
 //        if(isset($_SESSION['loggedIn'])){
 //        echo '<a class="btn btn-danger navbar-btn" href="../accounts?action=Logout">LogOut</a>';}
