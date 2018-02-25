@@ -16,6 +16,11 @@
   }
 
 }
+
+a {
+
+}
+
 .jumbotron{
     background-color: #43A546;
     color:white;
@@ -40,6 +45,7 @@ nav{
 }
 .intro{
     margin-bottom: 0;
+    background-color: #43A546;
 }
 .jumbotron h1, .jumbotron p, .jumbotron h2 {
     text-align: center;

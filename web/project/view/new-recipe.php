@@ -30,8 +30,18 @@
 
     <label for="title">Title:</label>
         <input type="text" name="title" class="form-control" size="50" placeholder="ex: Babushka's Borsch" required>
-    <label for="text">Ingredients and Directions:</label>
-    <textarea class = "form-control" name="text" id="textInput"></textarea>
+    <label for="category">Category:</label>
+    <select class="form-control" name="category" id="category">
+        <option>Breakfast</option>
+        <option>Lunch</option>
+        <option>Dinner</option>
+        <option>Dessert</option>
+    </select>
+    <!--<textarea class = "form-control" name="text" id="textInput"></textarea>-->
+    <label for="ingredients">Ingredients:</label>
+    <textarea class = "form-control" name="ingredients" id="ingredients"></textarea>
+    <label for="directions">Directions:</label>
+    <textarea class = "form-control" name="directions" id="directions"></textarea>
         <div class="input-group-btn">
             <input type="submit"  value="Add Recipe" class="btn btn-default">
             <input type="hidden" name = "action" value="addRecipe">
