@@ -144,10 +144,10 @@ switch ($action) {
             $db = get_db();
             //$sql = 'UPDATE recipes SET  recipetext = :text WHERE recipeid = :recipeid';
             $sql = 'UPDATE recipes SET recipeingredients = :ingredients WHERE recipeid = :recipeid';
-            $sql = 'UPDATE recipes SET recipedirections = :directions WHERE recipeid = :recipeid';
             $stmt = $db->prepare($sql);
             //$stmt->bindValue(':text', $text, PDO::PARAM_STR);
             $stmt->bindValue(':ingredients', $ingredients, PDO::PARAM_STR);
+            $sql = 'UPDATE recipes SET recipedirections = :directions WHERE recipeid = :recipeid';
             $stmt->bindValue(':directions', $directions, PDO::PARAM_STR);
             $stmt->bindValue(':recipeid', $recipeId, PDO::PARAM_STR);
             $stmt->execute();
