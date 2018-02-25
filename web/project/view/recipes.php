@@ -3,7 +3,10 @@
 <head>
     <title>Cilantro</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/main.css">
@@ -12,6 +15,11 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
+    <div class="phone">
+    <div class="screen">
+      <div class="statusbar">12:40 PM</div>
+      <div class="app">
+        <main>
 <nav>
     <h2><a href="../"> Cilantro Recipe Book</a></h2>
     <div class="buttons">
@@ -53,6 +61,9 @@
         echo ' </div></div>';
     }
 ?>
-
+</main>
+</div>
+</div>
+</div>
 </body>
 </html>

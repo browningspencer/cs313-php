@@ -30,9 +30,23 @@ speaker_id INT NOT NULL REFERENCE public.speaker(speaker_id),
 note_text text NOT NULL
 );
 
+--NEW--
+CREATE TABLE public.recipes
+(
+recipeid SERIAL NOT NULL PRIMARY KEY,
+userid INT NOT NULL REFERENCES public.users(userid),
+recipetitle varchar(50) NOT NULL,
+recipecategory varchar(20) NOT NULL, 
+recipedate date NOT NULL DEFAULT NOW(),
+recipeingredients text NOT NULL,
+recipedirections text NOT NULL
+);
 
 
-
+--OLD--
+CREATE TABLE public.recipes                                                                          
+(                                    
+recipeid SERIAL NOT NULL PRIMARY KEY,                                                        userid INT NOT NULL REFERENCES public.users(userid),                                                                                   recipetitle varchar(50) NOT NULL,                                                            recipedate date NOT NULL DEFAULT NOW(),                                                      recipetext text NOT NULL                                                                     );
 
 
 CREATE TABLE topic ( 
