@@ -39,9 +39,9 @@
     </select>
     <!--<textarea class = "form-control" name="text" id="textInput"></textarea>-->
     <label for="ingredients">Ingredients:</label>
-    <textarea class = "form-control" name="ingredients" id="ingredients" rows="30"></textarea>
+    <textarea class = "form-control" name="ingredients" id="ingredients" rows="10"></textarea>
     <label for="directions">Directions:</label>
-    <textarea class = "form-control" name="directions" id="directions" rows="50"></textarea>
+    <textarea class = "form-control" name="directions" id="directions" rows="15"></textarea>
         <div class="input-group-btn">
             <input type="submit"  value="Add Recipe" class="btn btn-default">
             <input type="hidden" name = "action" value="addRecipe">
