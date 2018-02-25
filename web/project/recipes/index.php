@@ -147,7 +147,13 @@ switch ($action) {
             $stmt = $db->prepare($sql);
             //$stmt->bindValue(':text', $text, PDO::PARAM_STR);
             $stmt->bindValue(':ingredients', $ingredients, PDO::PARAM_STR);
+            $stmt->bindValue(':recipeid', $recipeId, PDO::PARAM_STR);
+            $stmt->execute();
+            $rowCount = $stmt->rowCount();
+            $stmt->closeCursor();
+
             $sql = 'UPDATE recipes SET recipedirections = :directions WHERE recipeid = :recipeid';
+            $stmt = $db->prepare($sql);
             $stmt->bindValue(':directions', $directions, PDO::PARAM_STR);
             $stmt->bindValue(':recipeid', $recipeId, PDO::PARAM_STR);
             $stmt->execute();
