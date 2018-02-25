@@ -111,7 +111,7 @@ switch ($action) {
 
             $review = "<form  class='inline-form' action='../recipes/?action=updateRecipe' method='post' enctype='multipart/form-data' name='updateRecipe' id= 'updateRecipeForm'> ";
             $review .= "<h2>$recipe[recipetitle]</h2>";
-            $review .= "<h3>$recipe[recipecategory]</h3>";
+            $review .= "<h4>$recipe[recipecategory]</h4>";
             $review .= "<p>Entered on $recipe[date]</p>";
             $review .= "<label>Review Ingredients and Directions </label><br>";
             $review .= "<textarea class='form-control' name = 'newIngredients' rows='20' cols='60' required>";
@@ -143,8 +143,8 @@ switch ($action) {
         function addRecipe($ingredients, $directions, $recipeId){
             $db = get_db();
             //$sql = 'UPDATE recipes SET  recipetext = :text WHERE recipeid = :recipeid';
-            $sql = 'UPDATE recipes SET recipeIngredients = :ingredients WHERE recipeid = :recipeid';
-            $sql = 'UPDATE recipes SET recipeDirections = :directions WHERE recipeid = :recipeid';
+            $sql = 'UPDATE recipes SET recipeingredients = :ingredients WHERE recipeid = :recipeid';
+            $sql = 'UPDATE recipes SET recipedirections = :directions WHERE recipeid = :recipeid';
             $stmt = $db->prepare($sql);
             //$stmt->bindValue(':text', $text, PDO::PARAM_STR);
             $stmt->bindValue(':ingredients', $ingredients, PDO::PARAM_STR);
@@ -190,7 +190,7 @@ switch ($action) {
             $review .= "<div class='panel panel-default'>";
             $review .= "<div class='panel-heading'>";
             $review .= "<h2>Recipe title: $recipe[recipetitle]</h2>";
-            $review .= "<h3>$recipe[recipecategory]</h3>";
+            $review .= "<h4>$recipe[recipecategory]</h4>";
             $review .= "<p>Recipe date: $recipe[date]</p>";
             $review .= "</div>";
             $review .= "<div class = 'panel-body'>";
