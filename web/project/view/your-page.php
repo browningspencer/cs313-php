@@ -12,7 +12,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<nav>
+<div class="jumbotron intro">
     <h2><a href="../"> Cilantro Recipe Book</a></h2>
     <div class="buttons">
         <a  href="../accounts/" class="btn btn-warning navbar-btn">Home</a>
@@ -20,9 +20,6 @@
             echo '<a class="btn btn-danger navbar-btn" href="../accounts?action=Logout">LogOut</a>';}
         ?>
     </div>
-</nav>
-<body>
-<div class="jumbotron intro">
     <h2>Welcome to your Recipe Book, <?php echo $_SESSION['clientData']['firstname'];  ?>!</h2>
     <p>Please select an option</p>
 </div>
