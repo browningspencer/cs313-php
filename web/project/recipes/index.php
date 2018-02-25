@@ -49,7 +49,7 @@ switch ($action) {
         $recipeIngredients = filter_input(INPUT_POST, 'ingredients', FILTER_SANITIZE_STRING);
         $recipeDirections = filter_input(INPUT_POST, 'directions', FILTER_SANITIZE_STRING);
 
-        function addRecipe($userId, $title, $text){
+        function addRecipe($userId, $title, $category, $ingredients, $directions){
             $db = get_db();
             //$sql = 'INSERT INTO recipes (userid, recipetitle, recipetext) VALUES (:userid, :title, :text)';
             $sql = 'INSERT INTO recipes (userid, recipetitle, recipecategory, recipeingredients, recipedirections) VALUES (:userid, :title, :category, :ingredients, :directions)';
