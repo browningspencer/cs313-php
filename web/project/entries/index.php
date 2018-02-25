@@ -10,45 +10,45 @@ if ($action == NULL){
 
 switch ($action) {
 
-    case 'viewEntries':
+    case 'viewRecipes':
         $userId = $_SESSION['clientData']['userid'];
 
-        function getEntries($userId){
+        function getRecipes($userId){
             $db = get_db();
-            $sql = 'SELECT entryid, entrytitle, to_char(entrydate, \'MM-DD-YYYY\') as date, entrytext from entries where userid = :userid order by DATE ASC ';
+            $sql = 'SELECT recipeid, recipetitle, to_char(recipedate, \'MM-DD-YYYY\') as date, recipetext from recipes where userid = :userid order by DATE ASC ';
             $stmt = $db->prepare($sql);
             $stmt->bindValue(':userid', $userId, PDO::PARAM_STR);
             $stmt->execute();
-            $entries = $stmt->fetchALL(PDO::FETCH_ASSOC);
+            $recipes = $stmt->fetchALL(PDO::FETCH_ASSOC);
             $stmt->closeCursor();
-            return $entries;
+            return $recipes;
         }
 
-        $entries = getEntries($userId);
+        $recipes = getRecipes($userId);
 
-//             foreach ($entries as $entry) {
+//             foreach ($recipes as $recipe) {
 //            echo '<div class="panel panel-default">';
 //            echo '<div class="panel-heading">';
-//            echo '<h3><span> Title: <strong>'. $entry['entrytitle'].'</strong></span>';
-//            echo '<span> Date: <strong>'. $entry['date'].'</strong></span>';
+//            echo '<h3><span> Title: <strong>'. $recipe['recipetitle'].'</strong></span>';
+//            echo '<span> Date: <strong>'. $recipe['date'].'</strong></span>';
 //            echo '</h3>';
 //            echo ' </div>';
 //            echo ' <div class="panel-body">';
-//            echo '<p>'.$entry['entrytext'].'</p>';
+//            echo '<p>'.$recipe['recipetext'].'</p>';
 //            echo ' </div></div>';
 //            }
 
-        include '../view/entries.php';
+        include '../view/recipes.php';
     break;
 
-    case 'addEntry':
+    case 'addRecipe':
         $userId = $_SESSION['clientData']['userid'];
-        $entryTitle = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_STRING);
-        $entryText = filter_input(INPUT_POST, 'text', FILTER_SANITIZE_STRING);
+        $recipeTitle = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_STRING);
+        $recipeText = filter_input(INPUT_POST, 'text', FILTER_SANITIZE_STRING);
 
-        function addEntry($userId, $title, $text){
+        function addRecipe($userId, $title, $text){
             $db = get_db();
-            $sql = 'INSERT INTO entries (userid, entrytitle, entrytext) VALUES (:userid, :title, :text)';
+            $sql = 'INSERT INTO recipes (userid, recipetitle, recipetext) VALUES (:userid, :title, :text)';
             $stmt = $db->prepare($sql);
             $stmt->bindValue(':userid', $userId, PDO::PARAM_STR);
             $stmt->bindValue(':title', $title, PDO::PARAM_STR);
@@ -59,19 +59,19 @@ switch ($action) {
             return $rowCount;
         }
 
-        $newEntry = addEntry($userId, $entryTitle, $entryText);
+        $newRecipe = addRecipe($userId, $recipeTitle, $recipeText);
 
-        if ($newEntry == 1){
-            $message = 'Entry was added succesfully';
+        if ($newRecipe == 1){
+            $message = 'Recipe was added succesfully';
         }else{
-            $message = 'ERROR: entry not added, please contact administrator';
+            $message = 'ERROR: recipe not added, please contact administrator';
         }
         include '../view/your-page.php';
 
     break;
 
-    case 'goAddEntry':
-        include '../view/new-entry.php';
+    case 'goAddRecipe':
+        include '../view/new-recipe.php';
         break;
 
         case 'Logout' :
@@ -79,68 +79,68 @@ switch ($action) {
             header('location: ../');
         break;
 
-    case 'editEntry':
+    case 'editRecipe':
 
-        $entryId = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_STRING);
-        function getEntry($entryId){
+        $recipeId = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_STRING);
+        function getRecipe($recipeId){
             $db = get_db();
-            $sql = 'SELECT entryid, entrytitle, to_char(entrydate, \'MM-DD-YYYY\') as date, entrytext from entries where entryid = :entryid';
+            $sql = 'SELECT recipeid, recipetitle, to_char(recipedate, \'MM-DD-YYYY\') as date, recipetext from recipes where recipeid = :recipeid';
             $stmt = $db->prepare($sql);
-            $stmt->bindValue(':entryid', $entryId, PDO::PARAM_STR);
+            $stmt->bindValue(':recipeid', $recipeId, PDO::PARAM_STR);
             $stmt->execute();
-            $entries = $stmt->fetch(PDO::FETCH_ASSOC);
+            $recipes = $stmt->fetch(PDO::FETCH_ASSOC);
             $stmt->closeCursor();
-            return $entries;
+            return $recipes;
         }
 
-        $entry = getEntry($entryId);
+        $recipe = getRecipe($recipeId);
 
-        $_SESSION['entryId'] = $entry['entryid'];
+        $_SESSION['recipeId'] = $recipe['recipeid'];
 
-        function buildEntryEditForm($entry){
+        function buildRecipeEditForm($recipe){
 
 
-            $review = "<form  class='inline-form' action='../entries/?action=updateEntry' method='post' enctype='multipart/form-data' name='updateEntry' id= 'updateEntryForm'> ";
-            $review .= "<h2>$entry[entrytitle]</h2>";
-            $review .= "<p>Entered on $entry[date]</p>";
+            $review = "<form  class='inline-form' action='../recipes/?action=updateRecipe' method='post' enctype='multipart/form-data' name='updateRecipe' id= 'updateRecipeForm'> ";
+            $review .= "<h2>$recipe[recipetitle]</h2>";
+            $review .= "<p>Entered on $recipe[date]</p>";
             $review .= "<label>Review Text </label><br>";
             $review .= "<textarea class='form-control' name = 'newText' required>";
-            $review .= $entry['entrytext'];
+            $review .= $recipe['recipetext'];
             $review .= "</textarea><br>";
             $review .= "<input type = 'submit' value = 'update' >";
-            $review .= "<input type = 'hidden' name = 'action' value = 'updateEntry'>";
-            $review .= "<input type = 'hidden' name = 'reviewId' value = '$entry[entryid]'>";
+            $review .= "<input type = 'hidden' name = 'action' value = 'updateRecipe'>";
+            $review .= "<input type = 'hidden' name = 'reviewId' value = '$recipe[recipeid]'>";
             $review .= "</form>";
             return $review;
         }
 
-        $editEntryView= buildEntryEditForm($entry);
-        include '../view/edit-entry.php';
+        $editRecipeView= buildRecipeEditForm($recipe);
+        include '../view/edit-recipe.php';
 
         break;
 
-    case 'updateEntry':
-      $entryId = $_SESSION['entryId'];
+    case 'updateRecipe':
+      $recipeId = $_SESSION['recipeId'];
 
         $newText =  filter_input(INPUT_POST, 'newText', FILTER_SANITIZE_STRING);
 //        var_dump($newText);
 //        exit();
-        function addEntry($text, $entryId){
+        function addRecipe($text, $recipeId){
             $db = get_db();
-            $sql = 'UPDATE entries SET  entrytext = :text WHERE entryid = :entryid';
+            $sql = 'UPDATE recipes SET  recipetext = :text WHERE recipeid = :recipeid';
             $stmt = $db->prepare($sql);
             $stmt->bindValue(':text', $text, PDO::PARAM_STR);
-            $stmt->bindValue(':entryid', $entryId, PDO::PARAM_STR);
+            $stmt->bindValue(':recipeid', $recipeId, PDO::PARAM_STR);
             $stmt->execute();
             $rowCount = $stmt->rowCount();
             $stmt->closeCursor();
             return $rowCount;
         }
-        $newEntry = addEntry($newText, $entryId);
-        if ($newEntry == 1){
-            $message = 'Entry was updated successfully';
+        $newRecipe = addRecipe($newText, $recipeId);
+        if ($newRecipe == 1){
+            $message = 'recipe was updated successfully';
         }else{
-            $message = 'ERROR: entry not updated, please contact administrator';
+            $message = 'ERROR: recipe not updated, please contact administrator';
         }
         include '../view/your-page.php';
 
@@ -149,66 +149,66 @@ switch ($action) {
     case 'goDelete' :
 
 
-        $entryId = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_STRING);
-        function getEntry($entryId){
+        $recipeId = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_STRING);
+        function getRecipe($recipeId){
             $db = get_db();
-            $sql = 'SELECT entryid, entrytitle, to_char(entrydate, \'MM-DD-YYYY\') as date, entrytext from entries where entryid = :entryid';
+            $sql = 'SELECT recipeid, recipetitle, to_char(recipedate, \'MM-DD-YYYY\') as date, recipetext from recipes where recipeid = :recipeid';
             $stmt = $db->prepare($sql);
-            $stmt->bindValue(':entryid', $entryId, PDO::PARAM_STR);
+            $stmt->bindValue(':recipeid', $recipeId, PDO::PARAM_STR);
             $stmt->execute();
-            $entries = $stmt->fetch(PDO::FETCH_ASSOC);
+            $recipes = $stmt->fetch(PDO::FETCH_ASSOC);
             $stmt->closeCursor();
-            return $entries;
+            return $recipes;
         }
 
-        $entry = getEntry($entryId);
+        $recipe = getRecipe($recipeId);
 
-        $_SESSION['entryId'] = $entry['entryid'];
+        $_SESSION['recipeId'] = $recipe['recipeid'];
 
-        function buildEntryEditForm($entry){
-            $review = "<form  class='inline-form' action='../entries/' method='post' enctype='multipart/form-data' name='updateEntry' id= 'updateEntryForm'> ";
+        function buildRecipeEditForm($recipe){
+            $review = "<form  class='inline-form' action='../recipes/' method='post' enctype='multipart/form-data' name='updateRecipe' id= 'updateRecipeForm'> ";
             $review .= "<div class='panel panel-default'>";
             $review .= "<div class='panel-heading'>";
-            $review .= "<h2>Entry Title: $entry[entrytitle]</h2>";
-            $review .= "<p>Entry Date: $entry[date]</p>";
+            $review .= "<h2>Recipe title: $recipe[recipetitle]</h2>";
+            $review .= "<p>Recipe date: $recipe[date]</p>";
             $review .= "</div>";
             $review .= "<div class = 'panel-body'>";
-            $review .= "<label>Entry Text: </label><br>";
+            $review .= "<label>Recipe text: </label><br>";
             $review .= "<p name = 'newText' required>";
-            $review .= $entry['entrytext'];
+            $review .= $recipe['recipetext'];
             $review .= "</p><br>";
             $review .= "</div></div>";
-            $review .= "<input type = 'submit' value = 'Delete Entry' >";
-            $review .= "<input type = 'hidden' name = 'action' value = 'deleteEntry'>";
-            $review .= "<input type = 'hidden' name = 'entryId' value = '$entry[entryid]'>";
+            $review .= "<input type = 'submit' value = 'Delete Recipe' >";
+            $review .= "<input type = 'hidden' name = 'action' value = 'deleteRecipe'>";
+            $review .= "<input type = 'hidden' name = 'recipeId' value = '$recipe[recipeid]'>";
             $review .= "</form>";
             return $review;
         }
 
-        $deleteEntryView= buildEntryEditForm($entry);
-        include '../view/delete-entry.php';
+        $deleteRecipeView= buildRecipeEditForm($recipe);
+        include '../view/delete-recipe.php';
 
         break;
 
-    case 'deleteEntry':
+    case 'deleteRecipe':
 
-        $entryId = $_SESSION['entryId'];
+        $recipeId = $_SESSION['recipeId'];
 
-        function addEntry($entryId){
+        function addRecipe($recipeId){
             $db = get_db();
-            $sql = 'DELETE FROM entries  WHERE entryid = :entryid';
+            $sql = 'DELETE FROM recipes  WHERE recipeid = :recipeid';
             $stmt = $db->prepare($sql);
-            $stmt->bindValue(':entryid', $entryId, PDO::PARAM_STR);
+            $stmt->bindValue(':recipeid', $recipeId, PDO::PARAM_STR);
             $stmt->execute();
             $rowCount = $stmt->rowCount();
             $stmt->closeCursor();
             return $rowCount;
         }
-        $newEntry = addEntry($entryId);
-        if ($newEntry == 1){
-            $message = 'Entry was delete successfully';
+        $newRecipe = addRecipe($recipeId);
+        if ($newRecipe == 1){
+            $message = 'recipe was delete successfully';
         }else{
-            $message = 'ERROR: entry not deleted, please contact administrator';
+            $message = 'ERROR: recipe not deleted, please contact administrator';
         }
         include '../view/your-page.php';
 

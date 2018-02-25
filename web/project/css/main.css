@@ -27,14 +27,14 @@ nav{
     background-color:lightgray;
     padding: 0 5%;
 }
-.yourPage {
+.homePage {
     display:flex;
     justify-content: center;
     width: 80%;
     padding: 10vw 0;
     margin:auto;
 }
-.yourPage a {
+.homePage a {
     margin: 20px;
     padding: 3vw;
 }
@@ -75,7 +75,7 @@ form{
 #textInput{
     height: 250px;
 }
-.entryForm{
+.recipeForm{
     width:90%;
     margin:auto;
 }

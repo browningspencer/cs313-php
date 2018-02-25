@@ -1,7 +1,7 @@
 <?php
 session_start();
 //if ($_SESSION['loggedIn']){
-//    echo "<nav><h2><a href='../'> my || journal</a></h2><div class='buttons'>";
+//    echo "<nav><h2><a href='../'> Cilantro</a></h2><div class='buttons'>";
 //           if(isset($_SESSION['loggedIn'])){
 //            echo '<a class="btn btn-danger navbar-btn" href="../accounts?action=Logout">LogOut</a>';}
 //

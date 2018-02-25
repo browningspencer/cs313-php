@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Journal Me</title>
+    <title>Cilantro</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -12,9 +12,9 @@
 </head>
 <body>
 <nav>
-    <h2><a href="../"> my || journal</a></h2>
+    <h2><a href="../"> Cilantro</a></h2>
     <div class="buttons">
-        <a  href="../accounts/" class="btn btn-warning navbar-btn">myHome</a>
+        <a  href="../accounts/" class="btn btn-warning navbar-btn">Home</a>
         <?php if(isset($_SESSION['loggedIn'])){
             echo '<a class="btn btn-danger navbar-btn" href="../accounts?action=Logout">LogOut</a>';}
         ?>
@@ -22,30 +22,30 @@
 </nav>
 <body>
 <div class="jumbotron intro">
-    <h2>Welcome to your journal page, <?php echo $_SESSION['clientData']['firstname'];  ?></h2>
-    <p>Check out your options below!</p>
+    <h2>Welcome to your Recipe Book, <?php echo $_SESSION['clientData']['firstname'];  ?>!</h2>
+    <p>Please select an option</p>
 </div>
 
 <h3 class="message"><?php if (isset($message)){echo $message;}?></h3>
 
 
 
-<div class="yourPage">
-    <a class="btn btn-success" href="../entries/index.php?action=viewEntries">View previous entries</a>
-    <a class="btn btn-primary" href="../entries/index.php?action=goAddEntry">Add a new entry</a>
+<div class="homePage">
+    <a class="btn btn-success" href="../recipes/index.php?action=viewRecipes">View added recipes</a>
+    <a class="btn btn-primary" href="../recipes/index.php?action=goAddRecipe">Add Recipe</a>
 </div>
 <?php
-if ($action == 'viewEntries') {
-    $entries = getEntries($userId);
-    foreach ($entries as $entry) {
+if ($action == 'viewRecipes') {
+    $recipes = getRecipes($userId);
+    foreach ($recipes as $recipe) {
         echo '<div class="panel panel-default">';
         echo '<div class="panel-heading">';
-        echo '<h3><span> Title: <strong>' . $entry['entrytitle'] . '</strong></span>';
-        echo '<span> Date: <strong>' . $entry['date'] . '</strong></span>';
+        echo '<h3><span> Title: <strong>' . $recipe['recipetitle'] . '</strong></span>';
+        echo '<span> Date: <strong>' . $recipe['date'] . '</strong></span>';
         echo '</h3>';
         echo ' </div>';
         echo ' <div class="panel-body">';
-        echo '<p>' . $entry['entrytext'] . '</p>';
+        echo '<p>' . $recipe['recipetext'] . '</p>';
         echo ' </div></div>';
     }
 }

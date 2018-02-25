@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Journal Me</title>
+    <title>Cilantro</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -11,27 +11,26 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-
 <nav>
-    <h2><a href="../"> my || journal</a></h2>
+    <h2><a href="../"> Cilantro</a></h2>
     <div class="buttons">
-        <a  href="../accounts/" class="btn btn-warning navbar-btn">myHome</a>
+        <a  href="../accounts/" class="btn btn-warning navbar-btn">Home</a>
         <?php if(isset($_SESSION['loggedIn'])){
             echo '<a class="btn btn-danger navbar-btn" href="../accounts?action=Logout">LogOut</a>';}
         ?>
     </div>
 </nav>
-
+<body>
 <div class="jumbotron intro">
-    <h2>Delete your Journal Entry, <?php echo $_SESSION['clientData']['firstname'];  ?>?</h2>
+    <h2>Edit your Recipe <?php echo $_SESSION['clientData']['firstname'];  ?></h2>
+
 </div>
-<div class="warningText">WARNING: deletions are final. Proceed only if you wish to permanently delete your entry.</div>
-<div class="entryForm">
-    <?php
-    if (isset($deleteEntryView)){
-        echo $deleteEntryView;
-    }
-    ?>
+<div class="recipeForm">
+<?php
+if (isset($editRecipeView)){
+    echo $editRecipeView;
+}
+?>
 </div>
 </body>
 </html>
