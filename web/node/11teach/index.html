@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+
+	<title>11 Teach</title>
+</head>
+<body>
+
+	<form>
+		Input
+		<input type="text" value="Starwars" id="input"><br><br>
+		<input type="button" value="Submit" onClick="getInput()">
+	</form><br>
+
+
+	<div id="output"></div>
+	<script>
+		function getInput() {
+			var input = document.getElementById("input").value;
+			var url = "http://www.omdbapi.com/?i=tt3896198&apikey=1f4c6785&s=" + input;
+			//console.log(input);
+
+			fetch(url)
+				.then(
+					function(response){
+						if (response.status !== 200) {
+							console.log('Looks like there was a problem. Status Code: ' + response.status);
+							return;
+						}
+						response.json().then(function(data) {
+							displayMovies(data.Search);
+						})
+					})
+		}
+
+		function displayMovies(data) {
+			var output = document.getElementById("output");
+			//var array = data.Search;
+
+			for (var i = 0; i < data.length; i++) {
+				var imdbID = data[i].imdbID;
+
+				//output.innerHTML += data[i].Title + "<input type='button' value='View Details' onClick='viewDetails(" + imdbID + ")'><br>";
+				output.innerHTML += data[i].Title + "<input type='button' value='View Details' onClick='console.log(" + imdbID + ")'><br>";
+			}
+		}
+
+		function viewDetails(imdbID) {
+			console.log(imdbID);
+		}
+
+
+	</script>
+</body>
+</html>
